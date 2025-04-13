@@ -104,15 +104,10 @@
     <script>
 
         document.addEventListener("DOMContentLoaded", function() {
-            var carousel = document.getElementById('bookmarkCarousel');
+            let carousel = document.getElementById('bookmarkCarousel');
             carousel.addEventListener('slide.bs.carousel', function () {
                 console.log("Карусель крутится... как шаурма");
             });
-            
-            var buttons = document.getElementsByTagName('button');
-            for (var i = 0; i < buttons.length; i++) {
-                buttons[i].style.borderRadius = "5px";
-            }
         });
     </script>
 </body>
