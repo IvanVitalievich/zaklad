@@ -1,0 +1,40 @@
+body {
+    background-color: #e8f5e9;
+    font-family: Comic Sans MS, cursive; 
+}
+
+
+
+.navbar {
+    background-color: #4caf50 !important; 
+}
+
+
+
+.carousel-item img {
+    height: 300px;
+    object-fit: cover;
+}
+
+
+
+.card {
+    border: 2px dashed green; 
+    margin-bottom: 20px;
+}
+
+
+
+.footer {
+    background-color: #2e7d32;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+
+
+h1 {
+    color: #1b5e20;
+    text-shadow: 2px 2px 4px #a5d6a7;
+}
