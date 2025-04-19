@@ -9,7 +9,7 @@ const app = express();
 const db = new sqlite3.Database('./db.sqlite');
 const SECRET = 'your_joke_secret_123';
 
-// Middleware
+
 app.use(cors({
   origin: 'http://localhost:3000',
   credentials: true
@@ -17,7 +17,7 @@ app.use(cors({
 app.use(express.json());
 app.use(express.static(path.join(__dirname)));
 
-// Инициализация БД
+
 db.serialize(() => {
   db.run(`CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -26,7 +26,7 @@ db.serialize(() => {
   )`);
 });
 
-// Маршруты API
+
 app.post('/api/register', async (req, res) => {
   try {
     const { username, password } = req.body;
@@ -76,7 +76,6 @@ app.post('/api/login', async (req, res) => {
   }
 });
 
-// Защищенные маршруты
 app.use('/api/protected', (req, res, next) => {
   const token = req.headers.authorization?.split(' ')[1];
   if (!token) return res.status(401).json({ error: 'незареган' });
@@ -100,6 +99,7 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.listen(3000, () => {
-  console.log('Server running on http://localhost:3000');
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server running on port ${PORT}`);
 });
